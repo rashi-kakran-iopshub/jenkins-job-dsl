@@ -43,5 +43,5 @@ for (current_pipeline in pipeline_file_list) {
     //parsing the yaml content
     parsed_job_config = new Yaml().load((current_pipeline as File).text)
 
-    println("jobname is : "+parsed job config.job_name )
+    println("jobname is : "+parsed_job_config.job_name )
 }
