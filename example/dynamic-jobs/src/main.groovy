@@ -30,7 +30,7 @@ def cwd = hudson.model.Executor.currentExecutor()
 
 
 // Search for YAML files
-pipeline_file_list = searchYamlFiles(cwd)
+pipeline_file_list = searchYamlFiles(cwd.toString())
 
 
 //println("YAML files found:")
