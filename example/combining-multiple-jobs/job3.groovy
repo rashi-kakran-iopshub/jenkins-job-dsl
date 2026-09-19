@@ -1,4 +1,4 @@
-job('job-1') {
+job('job-3') {
   steps {
     shell('echo Hello World!')
   }
