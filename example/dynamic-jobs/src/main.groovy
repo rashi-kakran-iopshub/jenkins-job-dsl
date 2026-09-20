@@ -45,6 +45,45 @@ for (current_pipeline in pipeline_file_list) {
     JobUtils job_config = new JobUtils(current_pipeline)
 
     println("jobname is : "+job_config.get_job_name() )
+    def env_list = job_config.get_environments()
+
+    def dev_stage String = ""
+    def qa_stage String = ""
+    def prod_stage String = ""
+
+
+    if ("dev" in env_list){ 
+        dev_stage String = """
+            stage('Deploy DEV'){
+                steps {
+                    echo 'Deploying the project...'
+                }
+            }
+    """
+    }
+
+    if ("qa" in env_list){
+        qa_stage String = """
+            stage('Deploy QA'){
+                steps {
+                    echo 'Deploying the project...'
+                }
+            }
+    """   
+    }
+
+    if ("prod" in env_list){
+        prod_stage String = """
+            stage('Deploy PROD'){
+                steps {
+                    echo 'Deploying the project...'
+                }
+            }
+    """   
+    }
+
+
+
     pipelineJob(job_config.get_job_name()) {
     definition {
         cps {
@@ -71,26 +110,11 @@ pipeline {
                 echo 'Running Test...'
             }
         }
+     
+        ${dev_stage}
+        ${qa_stage}
+        ${prod_stage}
 
-        stage('Deploy Dev'){
-            steps {
-                echo 'Deploying the project...'
-            }
-        }
-
-
-        stage('Deploy QA'){
-            steps {
-                echo 'Deploying the project...'
-            }
-        }
-
-
-        stage('Deploy Prod'){
-            steps {
-                echo 'Deploying the project...'
-            }
-        }
     }
 }
             """)

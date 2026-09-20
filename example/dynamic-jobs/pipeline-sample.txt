@@ -21,7 +21,7 @@ pipeline {
             }
         }
 
-        stage('Deploy Dev'){
+        stage('Deploy DEV'){
             steps {
                 echo 'Deploying the project...'
             }
@@ -35,7 +35,7 @@ pipeline {
         }
 
 
-        stage('Deploy Prod'){
+        stage('Deploy PROD'){
             steps {
                 echo 'Deploying the project...'
             }

@@ -20,4 +20,9 @@ class JobUtils {
     String get_build_command(){
         return this.job_config.build_command
     }
+
+    ArrayList get_environments(){
+        return this.job_config.env
+    }
+    
 }
