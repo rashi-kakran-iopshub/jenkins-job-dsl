@@ -45,9 +45,63 @@ for (current_pipeline in pipeline_file_list) {
     JobUtils job_config = new JobUtils(current_pipeline)
 
     println("jobname is : "+job_config.get_job_name() )
-    job(job_config.get_job_name()) {
-      steps {
-        shell('echo Hello World!')
-       }
+    pipelineJob(job_config.get_job_name()) {
+    definition {
+        cps {
+            script(""" 
+pipeline {
+    agent any 
+
+    stages{
+
+        stage('Checkout'){
+            steps {
+                echo 'Checking out source code...'
+            }
+        }
+
+        stage('Build'){
+            steps {
+                echo 'Building the project...'
+            }
+        }
+
+        stage('Test'){
+            steps {
+                echo 'Running Test...'
+            }
+        }
+
+        stage('Deploy Dev'){
+            steps {
+                echo 'Deploying the project...'
+            }
+        }
+
+
+        stage('Deploy QA'){
+            steps {
+                echo 'Deploying the project...'
+            }
+        }
+
+
+        stage('Deploy Prod'){
+            steps {
+                echo 'Deploying the project...'
+            }
+        }
     }
+}
+            """)
+            sandbox()
+        }
+     }
+    }
+    // job(job_config.get_job_name()) {
+    //   steps {
+    //     shell('echo Hello World!')
+    //    }
+    // }
+    
 }
