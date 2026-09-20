@@ -53,7 +53,7 @@ for (current_pipeline in pipeline_file_list) {
 
 
     if ("dev" in env_list){ 
-        dev_stage String = """
+        dev_stage = """
             stage('Deploy DEV'){
                 steps {
                     echo 'Deploying the project...'
@@ -63,7 +63,7 @@ for (current_pipeline in pipeline_file_list) {
     }
 
     if ("qa" in env_list){
-        qa_stage String = """
+        qa_stage = """
             stage('Deploy QA'){
                 steps {
                     echo 'Deploying the project...'
@@ -73,7 +73,7 @@ for (current_pipeline in pipeline_file_list) {
     }
 
     if ("prod" in env_list){
-        prod_stage String = """
+        prod_stage = """
             stage('Deploy PROD'){
                 steps {
                     echo 'Deploying the project...'
