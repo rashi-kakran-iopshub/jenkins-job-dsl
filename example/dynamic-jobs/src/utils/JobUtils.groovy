@@ -8,7 +8,7 @@ class JobUtils {
 
     JobUtils(current_pipeline){
         //parsing the yaml content
-        parsed_job_config = new Yaml().load((current_pipeline as File).text)
+        def parsed_job_config = new Yaml().load((current_pipeline as File).text)
         this.job_config = parsed_job_config
     } 
 
