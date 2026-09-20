@@ -47,9 +47,9 @@ for (current_pipeline in pipeline_file_list) {
     println("jobname is : "+job_config.get_job_name() )
     def env_list = job_config.get_environments()
 
-    def dev_stage String = ""
-    def qa_stage String = ""
-    def prod_stage String = ""
+    def dev_stage = ""
+    def qa_stage = ""
+    def prod_stage  = ""
 
 
     if ("dev" in env_list){ 
