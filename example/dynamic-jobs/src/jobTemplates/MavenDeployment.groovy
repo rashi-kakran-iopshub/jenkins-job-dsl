@@ -26,12 +26,6 @@ pipeline {
                 echo '${job_config.get_build_command()}'
             }
         }
-
-        stage('Test'){
-            steps {
-                echo 'Running Test...'
-            }
-        }
     }
 }
             """)
