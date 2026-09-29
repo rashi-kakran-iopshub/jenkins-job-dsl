@@ -1,4 +1,3 @@
 job_name: "dynamic-job-3"
 build_command: "build command for job 3"
-env:
-  - dev
+job_type: maven
