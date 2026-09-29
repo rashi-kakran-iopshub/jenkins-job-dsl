@@ -51,10 +51,10 @@ for (current_pipeline in pipeline_file_list) {
     String job_type =  job_config.get_job_type()
 
     if("kubernetes" == job_type){
-       new KubeDeployment(pipelineJob(job_config.get_job_name()), job_config)
+       new KubeDeployment().create(pipelineJob(job_config.get_job_name()), job_config)
     }
     else if("maven" == job_type){
-       new MavenDeployment(pipelineJob(job_config.get_job_name()), job_config)
+       new MavenDeployment().create(pipelineJob(job_config.get_job_name()), job_config)
     }
 
 
